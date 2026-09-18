@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { projectSublinks } from '../data/mockData';
-import { ArrowLeft, ArrowRight, MapPin, Check, FileText } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, FileText } from 'lucide-react';
 import jigsawHeroImg from '../assets/images/joint.jpg';
 import circlesHeroImg from '../assets/images/newsletter2Img.png';
 import burnoutHeroImg from '../assets/images/building-a-healthier.jpg';

@@ -7,7 +7,7 @@ interface KnowledgeTranslationCentreProps {
   onNavigate?: (tab: NavLinkId) => void;
 }
 
-export const KnowledgeTranslationCentre: React.FC<KnowledgeTranslationCentreProps> = ({ onNavigate }) => {
+export const KnowledgeTranslationCentre: React.FC<KnowledgeTranslationCentreProps> = () => {
   // Ensure document title reflects the specified page title
   useEffect(() => {
     document.title = 'Knowledge Translation Centre | WAFERs';

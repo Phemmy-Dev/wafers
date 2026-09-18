@@ -6,7 +6,7 @@ import jointImg from '../assets/images/joint.jpg';
 import ageImg from '../assets/images/age.jpg';
 import burnoutImg from '../assets/images/building-a-healthier.jpg';
 import publicationImg from '../assets/images/publication-img.jpg';
-import { ArrowRight, BookOpen, GraduationCap, MessageSquareShare, Megaphone, Check, Phone, Mail, Clock, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, GraduationCap, MessageSquareShare, Megaphone, Phone, Mail, Clock, Sparkles } from 'lucide-react';
 
 interface HomeProps {
   onNavigate: (tab: NavLinkId, projectSlug?: string) => void;

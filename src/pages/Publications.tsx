@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import pubHeroImg from '../assets/images/publication-img.jpg';
-import { Search, ExternalLink, Copy, Check, BookOpen, Calendar, MapPin, ArrowRight } from 'lucide-react';
+import { Search, Copy, Check, BookOpen, Calendar, MapPin, ArrowRight } from 'lucide-react';
 
 interface PublicationItem {
   id: string;
