@@ -87,6 +87,7 @@ export interface FeaturedStory {
   excerpt: string;
   coverImage?: string;
   coverImagePlaceholder?: string;
+  gallery?: string[];
   content?: string[];
   eventDetails?: StoryEventDetails;
   keyObjectives?: string[];

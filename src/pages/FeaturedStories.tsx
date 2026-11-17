@@ -25,7 +25,7 @@ import storiesHeroImg from '../assets/images/HeroImg.jpg';
 export const FeaturedStories: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeStory, setActiveStory] = useState<FeaturedStory | null>(null);
-  const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
 
   const categories: (string | StoryCategory)[] = [
@@ -203,7 +203,7 @@ export const FeaturedStories: React.FC = () => {
             {activeStory.coHosts && (
               <div className="pt-6 mt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-3">
                 <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold mr-2">
-                  Jointly Hosted By:
+                  {activeStory.coHosts.length > 1 ? "Jointly Hosted By:" : "Hosted By:"}
                 </span>
                 {activeStory.coHosts.map((host) => (
                   <span
@@ -406,7 +406,7 @@ export const FeaturedStories: React.FC = () => {
               {/* Webinar Flyer Card with Lightbox trigger */}
               {activeStory.coverImage && (
                 <div className="bg-slate-50 border border-slate-200 p-4 space-y-3">
-                  <div className="relative group cursor-pointer overflow-hidden border border-slate-200 bg-white" onClick={() => setIsLightboxOpen(true)}>
+                  <div className="relative group cursor-pointer overflow-hidden border border-slate-200 bg-white" onClick={() => setLightboxImage(activeStory.coverImage!)}>
                     <img
                       src={activeStory.coverImage}
                       alt={activeStory.title}
@@ -420,7 +420,7 @@ export const FeaturedStories: React.FC = () => {
                   <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-slate-500 pt-2 px-2">
                     <span className="font-bold">Official Poster</span>
                     <button
-                      onClick={() => setIsLightboxOpen(true)}
+                      onClick={() => setLightboxImage(activeStory.coverImage!)}
                       className="text-sky-700 font-bold hover:underline cursor-pointer flex items-center gap-1.5"
                     >
                       <Maximize2 className="w-3 h-3" />
@@ -429,6 +429,29 @@ export const FeaturedStories: React.FC = () => {
                   </div>
                 </div>
               )}
+
+              {/* Additional flyers */}
+              {activeStory.gallery?.map((img, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setLightboxImage(img)}
+                  className="block w-full bg-slate-50 border border-slate-200 p-4 cursor-pointer group"
+                  aria-label="Enlarge flyer"
+                >
+                  <div className="relative overflow-hidden border border-slate-200 bg-white">
+                    <img
+                      src={img}
+                      alt={`${activeStory.title} flyer ${idx + 2}`}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3 text-white text-xs font-mono font-bold uppercase tracking-widest backdrop-blur-sm">
+                      <Maximize2 className="w-4 h-4" />
+                      <span>View Flyer</span>
+                    </div>
+                  </div>
+                </button>
+              ))}
 
               {/* Contact Card */}
               {activeStory.contactInfo && (
@@ -479,10 +502,10 @@ export const FeaturedStories: React.FC = () => {
         </div>
 
         {/* Lightbox Modal for Flyer Image */}
-        {isLightboxOpen && activeStory.coverImage && (
+        {lightboxImage && (
           <div
             className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
-            onClick={() => setIsLightboxOpen(false)}
+            onClick={() => setLightboxImage(null)}
           >
             <div
               className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center bg-white p-2 sm:p-4 shadow-2xl"
@@ -490,19 +513,19 @@ export const FeaturedStories: React.FC = () => {
             >
               <button
                 type="button"
-                onClick={() => setIsLightboxOpen(false)}
+                onClick={() => setLightboxImage(null)}
                 className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 text-white bg-slate-900 hover:bg-sky-600 p-3 rounded-full cursor-pointer z-10 transition-colors shadow-lg"
                 aria-label="Close flyer preview"
               >
                 <X className="w-5 h-5" />
               </button>
               <img
-                src={activeStory.coverImage}
-                alt="Webinar Poster Full View"
+                src={lightboxImage}
+                alt="Event flyer full view"
                 className="max-h-[80vh] w-auto object-contain"
               />
               <div className="w-full py-4 px-4 flex items-center justify-between text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-500 font-bold">
-                <span>WHO • GIN • WAFERs Joint Webinar Series</span>
+                <span>{activeStory.coHosts?.map((h) => h.shortName).join(" • ")}</span>
                 {activeStory.eventDetails?.registrationUrl && (
                   <a
                     href={activeStory.eventDetails.registrationUrl}

@@ -1,5 +1,7 @@
 import type { Publication, Project, FeaturedStory, TeamMember } from '../types';
 import whoGinWafersWebinarImg from '../assets/images/who-gin-wafers-webinar.png';
+import nhefResearchImpactImg from '../assets/images/nhef-research-impact-flyer.png';
+import nhefFacilitatorImg from '../assets/images/nhef-facilitator-flyer.png';
 
 export const projectSublinks = [
   {
@@ -148,6 +150,45 @@ export const mockProjects: Project[] = [
 ];
 
 export const mockFeaturedStories: FeaturedStory[] = [
+  {
+    id: 'nhef-publishing-research-impact',
+    slug: 'publishing-and-increasing-research-impact-nhef-online-skills-academy',
+    title: 'Publishing & Increasing Research Impact: NHEF Online Skills Academy',
+    subtitle: 'A special session for university faculty and administrators, facilitated by Dr Opeyemi Babatunde.',
+    category: 'Webinars & Events',
+    publishedAt: 'November 17, 2026',
+    readingTime: '2 min read',
+    author: {
+      name: 'wafers',
+      role: 'WAFERs Secretariat & Research Directorate',
+    },
+    excerpt: 'Learn to publish your research strategically and increase its academic and professional impact, in a special session of the 2026 NHEF Online Skills Academy for university faculty and administrators.',
+    coverImage: nhefResearchImpactImg,
+    gallery: [nhefFacilitatorImg],
+    content: [
+      'The Nigeria Higher Education Foundation (NHEF) is hosting "Publishing & Increasing Research Impact", a special session of its 2026 Online Skills Academy for university faculty and administrators. The session takes place on Saturday, 21 November 2026 at 6 p.m. WAT on Zoom.',
+      'The session is facilitated by Dr Opeyemi (Yemi) Babatunde, a public health researcher, educator, and knowledge mobilisation specialist based at Keele University, UK, where she serves as Senior Lecturer in Evidence Synthesis and Applied Health Research, Interim Programme Director for the Master of Public Health, and Deputy Director of the Institute for Global Health and Wellbeing.',
+      'She is also an Honorary Professor at the University of Ibadan, Nigeria. Her work focuses on helping research make a real difference in policy and practice. Through collaborations with academic, healthcare, policy, and international partners, including WAFERs, she supports research capacity strengthening and the translation of evidence into action.',
+      'Registration is open at www.thenhef.org. For enquiries, contact programs@thenhef.org.',
+    ],
+    eventDetails: {
+      dates: ['Saturday, 21 November 2026'],
+      time: '6 p.m. WAT',
+      platform: 'Zoom',
+      registrationUrl: 'https://www.thenhef.org',
+    },
+    speakers: [
+      {
+        name: 'Dr Opeyemi Babatunde',
+        role: 'Deputy Director, Institute for Global Health and Wellbeing; Senior Lecturer in Evidence Synthesis and Applied Health Research',
+        affiliation: 'Keele University, UK',
+        type: 'Speaker',
+      },
+    ],
+    coHosts: [
+      { name: 'Nigeria Higher Education Foundation', shortName: 'NHEF' },
+    ],
+  },
   {
     id: 'who-gin-wafers-webinar',
     slug: 'join-the-global-conversation-who-gin-and-wafers-host-webinar-series-on-essential-medicines-and-multimorbidity-care',
