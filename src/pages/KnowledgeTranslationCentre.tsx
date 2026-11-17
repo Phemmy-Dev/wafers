@@ -152,7 +152,7 @@ export const KnowledgeTranslationCentre: React.FC<KnowledgeTranslationCentreProp
 
               <div className="pt-10">
                 <a
-                  href="https://knowledgetranslationcentre.org/get-involved"
+                  href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=PGvv6suXkE21KCAx8haMHrJAyEJDrwZEpC2AZEN51NtUN0dYRTJGT1UzQ0JJOElaRVUwUzYxNVFDNC4u"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-3 bg-white text-slate-950 hover:bg-slate-200 px-8 py-4 text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer group"
